@@ -1,15 +1,16 @@
-let bdproductos;
+
 /* Agregar Item */
+
 let iclon = 0;
 function agregarItem() {
     ++iclon;
     let item = document.querySelector('.item');
     let clon = item.cloneNode(true);
-
+    
     let clonIdproducto = clon.querySelectorAll("input")[0];
     clonIdproducto.value = "";
     clonIdproducto.id = "idproducto" + iclon;
-
+    
     let clonProducto = clon.querySelectorAll("input")[1];
     clonProducto.value = "";
     clonProducto.id = "producto" + iclon;
@@ -34,9 +35,9 @@ function tecla(e) {
         e.preventDefault();
         agregarItem();
     }
-    else if (e.key === 'F' && e.ctrlKey && e.shiftKey) {
+    else if (e.key === 'A' && e.ctrlKey && e.shiftKey) {
         e.preventDefault();
-        facturar();
+        addStock();
     }
 }
 
@@ -51,12 +52,22 @@ function actualizarBotonesEliminar() {
         element.addEventListener("click", borrarItem);
     });
 }
+let botonAgregarItem = document.querySelector("#agregarItem");
+botonAgregarItem.addEventListener("click", agregarItem);
+
+let items = document.querySelector("#items");
+items.addEventListener("keydown", tecla);
+
+/* Rellenar Campos Segun Id Producto */
+let bdproductos;
 function actualizarInputIdProductos() {
     let inputIdProducto = document.querySelectorAll(".idproducto");
     inputIdProducto.forEach(element => {
         element.addEventListener("keyup", llenarInputItemPorId);
     });
 }
+
+
 function llenarInputItemPorId(event) {
     event.preventDefault();
     const idp = event.target.id;
@@ -88,9 +99,38 @@ function productoPorId(nid) {
 
 actualizarInputIdProductos();
 
-let botonAgregarItem = document.querySelector("#agregarItem");
-botonAgregarItem.addEventListener("click", agregarItem);
+/* Añadir al Inventario */
 
-let items = document.querySelector("#items");
-items.addEventListener("keydown", tecla);
+function Purchase(id, product, lot) {
+    this.id = Number(id);
+    this.product = product;
+    this.lot = Number(lot);
+}
+
+function addStock(){
+    const purchases = [];
+    const items = document.querySelectorAll('.item');
+    items.forEach(element => {
+        let purchase = new Purchase(
+            element.querySelectorAll("input")[0].value,
+            element.querySelectorAll("input")[1].value,
+            element.querySelectorAll("input")[3].value
+        );
+        purchases.push(purchase);
+    });
+    bdproductos = JSON.parse(localStorage.getItem("DBstock"));
+    bdproductos.map(actualizarStock);
+    localStorage.setItem("DBstock", JSON.stringify(bdproductos));
+
+    function actualizarStock(item){
+        purchases.map((purchase)=>{
+            if(item.id===purchase.id){
+                item.stock += purchase.lot;
+            };
+        });
+    };
+};
+
+let btnAddStock = document.querySelector("#addStock");
+btnAddStock.addEventListener("click", addStock);
 
