@@ -2,27 +2,32 @@
 	{
 		"id": 5599,
 		"precio": 3063866,
-		"nombre": "fringilla"
+		"nombre": "fringilla",
+		"stock": 110
 	},
 	{
 		"id": 7286,
 		"precio": 1852706,
-		"nombre": "erat"
+		"nombre": "erat",
+		"stock": 120
 	},
 	{
 		"id": 4897,
 		"precio": 1641938,
-		"nombre": "ligula."
+		"nombre": "ligula.",
+		"stock": 130
 	},
 	{
 		"id": 7489,
 		"precio": 2644023,
-		"nombre": "eu"
+		"nombre": "eu",
+		"stock": 140
 	},
 	{
 		"id": 4009,
 		"precio": 2709580,
-		"nombre": "ligula."
+		"nombre": "ligula.",
+		"stock": 150
 	},
 	{
 		"id": 3799,

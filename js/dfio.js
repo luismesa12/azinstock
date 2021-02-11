@@ -1,16 +1,22 @@
 let totalCompra = 0;
 /* Lista de Productos Aplicando AJAX*/
 let bdproductos;
+
 $.ajax({
     url: 'js/bdProductos.json',
     dataType: 'json',
     success: function (data) {
         bdproductos = data;
+        localStorage.setItem("DBstock", JSON.stringify(data));
         actualizarInputIdProductos();
     }
 });
+
+
+
 function productoPorId(nid) {
     let producto;
+    bdproductos = JSON.parse(localStorage.getItem("DBstock"));
     bdproductos.forEach(i => {
         if (i["id"] == nid) {
             producto = i
@@ -63,7 +69,7 @@ function Compra(producto, precio, cantidad) {
         return this.precio * this.cantidad
     }
 }
-
+/* Agregar Item */
 let iclon = 0;
 function agregarItem() {
     ++iclon;
