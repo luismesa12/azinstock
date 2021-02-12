@@ -8,11 +8,11 @@ if (!localStorage.getItem("DBstock")) {
         success: function (data) {
             bdproductos = data;
             localStorage.setItem("DBstock", JSON.stringify(data));
-            actualizarInputIdProductos();
         }
     });
 }
 
+actualizarInputIdProductos();
 function productoPorId(nid) {
     let producto;
     bdproductos = JSON.parse(localStorage.getItem("DBstock"));
@@ -59,10 +59,11 @@ function Cliente(nombre, id, tel, ciudad) {
     this.ciudad = ciudad;
 }
 
-function Compra(producto, precio, cantidad) {
+function Compra(id, producto, precio, cantidad) {
+    this.id =Number(id);
     this.producto = producto;
     this.precio = precio;
-    this.cantidad = cantidad;
+    this.cantidad = Number(cantidad);
 
     this.total = function () {
         return this.precio * this.cantidad
@@ -98,11 +99,14 @@ function agregarItem() {
     actualizarInputIdProductos();
 }
 
+/* Facturar */
+let stockOk;
 function facturar() {
     let compras = [];
     let items = document.querySelectorAll('.item');
     items.forEach(element => {
         let compra = new Compra(
+            element.querySelectorAll("input")[0].value,
             element.querySelectorAll("input")[1].value,
             element.querySelectorAll("input")[2].value,
             element.querySelectorAll("input")[3].value
@@ -115,58 +119,60 @@ function facturar() {
         document.querySelector('#tel').value,
         document.querySelector('#ciudad').value
     );
-
-    let itemsCompra = "";
-
-    compras.forEach(element => {
-        itemsCompra += `${element.producto}  /  $${element.precio}  /  ${element.cantidad}  /  $${element.total()}<br>`
-        totalCompra += element.total()
-    });
-
-    const part1 = document.createElement('p');
-    part1.textContent = `Cliente: ${cliente.nombre}`;
-
-    const part2 = document.createElement('p');
-    part2.textContent = `Id: ${cliente.id}`;
-
-    const part3 = document.createElement('p');
-    part3.textContent = `Télefono: ${cliente.tel}`;
-
-    const part4 = document.createElement('p');
-    part4.textContent = `Ciudad: ${cliente.ciudad}`;
-
-    const part5 = document.createElement('p');
-    part5.innerHTML = `---------------------------------------<br>
-    Producto / Precio / Cantidad / Total`;
-
-    const part6 = document.createElement('div');
-    part6.innerHTML = `${itemsCompra}<br>`;
-
-    const part7 = document.createElement('p');
-    part7.textContent = `Total a Pagar: $${totalCompra}`;
-
-    const part8 = document.createElement('p');
-    part8.innerHTML = `---------------------------------------<br>
-    ¡¡¡Gracias Por Su Compra!!!<br>
-    ---------------------------------------`;
-    const part9 = document.createElement("div");
-    part9.innerHTML = `<button type="button" id="verCredito" class="btn btn-primary" data-toggle="modal" data-target="#modalCredito">
-    Ver Crédito</button>`
-
-    const divPrueba = document.querySelector('#primerDiv');
-
-    divPrueba.innerHTML = '';
-    divPrueba.appendChild(part1)
-    divPrueba.appendChild(part2)
-    divPrueba.appendChild(part3)
-    divPrueba.appendChild(part4)
-    divPrueba.appendChild(part5)
-    divPrueba.appendChild(part6)
-    divPrueba.appendChild(part7)
-    divPrueba.appendChild(part8)
-    divPrueba.appendChild(part9)
-
-}
+    stockOk=true;
+    checkStock(compras);
+    if (stockOk) {
+        let itemsCompra = "";
+        totalCompra = 0;    
+        compras.forEach(element => {
+            itemsCompra += `${element.producto}  /  $${element.precio}  /  ${element.cantidad}  /  $${element.total()}<br>`
+            totalCompra += element.total()
+        });
+    
+        const part1 = document.createElement('p');
+        part1.textContent = `Cliente: ${cliente.nombre}`;
+    
+        const part2 = document.createElement('p');
+        part2.textContent = `Id: ${cliente.id}`;
+    
+        const part3 = document.createElement('p');
+        part3.textContent = `Télefono: ${cliente.tel}`;
+    
+        const part4 = document.createElement('p');
+        part4.textContent = `Ciudad: ${cliente.ciudad}`;
+    
+        const part5 = document.createElement('p');
+        part5.innerHTML = `---------------------------------------<br>
+        Producto / Precio / Cantidad / Total`;
+    
+        const part6 = document.createElement('div');
+        part6.innerHTML = `${itemsCompra}<br>`;
+    
+        const part7 = document.createElement('p');
+        part7.textContent = `Total a Pagar: $${totalCompra}`;
+    
+        const part8 = document.createElement('p');
+        part8.innerHTML = `---------------------------------------<br>
+        ¡¡¡Gracias Por Su Compra!!!<br>
+        ---------------------------------------`;
+        const part9 = document.createElement("div");
+        part9.innerHTML = `<button type="button" id="verCredito" class="btn btn-primary" data-toggle="modal" data-target="#modalCredito">
+        Ver Crédito</button>`
+    
+        const divPrueba = document.querySelector('#primerDiv');
+    
+        divPrueba.innerHTML = '';
+        divPrueba.appendChild(part1);
+        divPrueba.appendChild(part2);
+        divPrueba.appendChild(part3);
+        divPrueba.appendChild(part4);
+        divPrueba.appendChild(part5);
+        divPrueba.appendChild(part6);
+        divPrueba.appendChild(part7);
+        divPrueba.appendChild(part8);
+        divPrueba.appendChild(part9);        
+    };    
+};
 
 
 function tecla(e) {
@@ -277,3 +283,23 @@ function resetForm() {
 }
 /* Fin Formulario Contacto */
 
+/* Verificar Inventario */
+function checkStock(itemsOut) {
+    bdproductos = JSON.parse(localStorage.getItem("DBstock"));
+    itemsOut.map(item=>{
+        bdproductos.map((product)=>{
+            if (product.id===item.id) {
+                console.log(product.nombre, product.stock, item.producto, item.cantidad);
+                console.log(typeof(item.cantidad), typeof(item.id));
+                if(item.cantidad>product.stock){
+                    console.log("no hay stock de "+product.nombre+ "solo hay "+product.stock);
+                    alert(`No Hay suficiente Stock del Producto Id: ${product.id} - ${product.nombre}
+Stock Máximo Dispinible = ${product.stock} Unidades`);
+                    stockOk=false;
+                };
+            };
+        });
+    });
+    
+};
+/* Fin Verificar Inventario */
