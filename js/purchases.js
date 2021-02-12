@@ -119,10 +119,10 @@ function addStock(){
         purchases.push(purchase);
     });
     bdproductos = JSON.parse(localStorage.getItem("DBstock"));
-    bdproductos.map(actualizarStock);
+    bdproductos.map(updateStock);
     localStorage.setItem("DBstock", JSON.stringify(bdproductos));
 
-    function actualizarStock(item){
+    function updateStock(item){
         purchases.map((purchase)=>{
             if(item.id===purchase.id){
                 item.stock += purchase.lot;

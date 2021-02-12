@@ -170,7 +170,8 @@ function facturar() {
         divPrueba.appendChild(part6);
         divPrueba.appendChild(part7);
         divPrueba.appendChild(part8);
-        divPrueba.appendChild(part9);        
+        divPrueba.appendChild(part9);
+        updateStock(compras);
     };    
 };
 
@@ -289,10 +290,7 @@ function checkStock(itemsOut) {
     itemsOut.map(item=>{
         bdproductos.map((product)=>{
             if (product.id===item.id) {
-                console.log(product.nombre, product.stock, item.producto, item.cantidad);
-                console.log(typeof(item.cantidad), typeof(item.id));
                 if(item.cantidad>product.stock){
-                    console.log("no hay stock de "+product.nombre+ "solo hay "+product.stock);
                     alert(`No Hay suficiente Stock del Producto Id: ${product.id} - ${product.nombre}
 Stock Máximo Dispinible = ${product.stock} Unidades`);
                     stockOk=false;
@@ -303,3 +301,19 @@ Stock Máximo Dispinible = ${product.stock} Unidades`);
     
 };
 /* Fin Verificar Inventario */
+/* Actualizar Inventario */
+function updateStock(itemsOut) {
+    bdproductos = JSON.parse(localStorage.getItem("DBstock"));
+    bdproductos.map(decreaseStock);
+    localStorage.setItem("DBstock", JSON.stringify(bdproductos));
+    function decreaseStock(item) {
+        itemsOut.map((itemOut)=>{
+            if (item.id===itemOut.id) {
+                console.log(item.stock," ",itemOut.cantidad);
+                item.stock -= itemOut.cantidad
+            };
+        });        
+    };
+};  
+
+/* Fin Actualizar Inventario */
