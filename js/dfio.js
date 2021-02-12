@@ -1,18 +1,17 @@
 let totalCompra = 0;
 /* Lista de Productos Aplicando AJAX*/
 let bdproductos;
-
-$.ajax({
-    url: 'js/bdProductos.json',
-    dataType: 'json',
-    success: function (data) {
-        bdproductos = data;
-        localStorage.setItem("DBstock", JSON.stringify(data));
-        actualizarInputIdProductos();
-    }
-});
-
-
+if (!localStorage.getItem("DBstock")) {
+    $.ajax({
+        url: 'js/bdProductos.json',
+        dataType: 'json',
+        success: function (data) {
+            bdproductos = data;
+            localStorage.setItem("DBstock", JSON.stringify(data));
+            actualizarInputIdProductos();
+        }
+    });
+}
 
 function productoPorId(nid) {
     let producto;
