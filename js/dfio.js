@@ -1,12 +1,12 @@
 let totalCompra = 0;
 /* Lista de Productos Aplicando AJAX*/
-let bdproductos;
+let dbStock;
 if (!localStorage.getItem("DBstock")) {
     $.ajax({
         url: 'js/bdProductos.json',
         dataType: 'json',
         success: function (data) {
-            bdproductos = data;
+            dbStock = data;
             localStorage.setItem("DBstock", JSON.stringify(data));
         }
     });
@@ -15,8 +15,8 @@ if (!localStorage.getItem("DBstock")) {
 actualizarInputIdProductos();
 function productoPorId(nid) {
     let producto;
-    bdproductos = JSON.parse(localStorage.getItem("DBstock"));
-    bdproductos.forEach(i => {
+    dbStock = JSON.parse(localStorage.getItem("DBstock"));
+    dbStock.forEach(i => {
         if (i["id"] == nid) {
             producto = i
         }
@@ -286,9 +286,9 @@ function resetForm() {
 
 /* Verificar Inventario */
 function checkStock(itemsOut) {
-    bdproductos = JSON.parse(localStorage.getItem("DBstock"));
+    dbStock = JSON.parse(localStorage.getItem("DBstock"));
     itemsOut.map(item=>{
-        bdproductos.map((product)=>{
+        dbStock.map((product)=>{
             if (product.id===item.id) {
                 if(item.cantidad>product.stock){
                     alert(`No Hay suficiente Stock del Producto Id: ${product.id} - ${product.nombre}
@@ -303,9 +303,9 @@ Stock Máximo Dispinible = ${product.stock} Unidades`);
 /* Fin Verificar Inventario */
 /* Actualizar Inventario */
 function updateStock(itemsOut) {
-    bdproductos = JSON.parse(localStorage.getItem("DBstock"));
-    bdproductos.map(decreaseStock);
-    localStorage.setItem("DBstock", JSON.stringify(bdproductos));
+    dbStock = JSON.parse(localStorage.getItem("DBstock"));
+    dbStock.map(decreaseStock);
+    localStorage.setItem("DBstock", JSON.stringify(dbStock));
     function decreaseStock(item) {
         itemsOut.map((itemOut)=>{
             if (item.id===itemOut.id) {
