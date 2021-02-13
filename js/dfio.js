@@ -155,11 +155,11 @@ function facturar() {
         part8.innerHTML = `---------------------------------------<br>
         ¡¡¡Gracias Por Su Compra!!!<br>
         ---------------------------------------`;
-        const part9 = document.createElement("div");
-        part9.innerHTML = `<button type="button" id="verCredito" class="btn btn-primary" data-toggle="modal" data-target="#modalCredito">
+        const part9 = document.createElement("span");
+        part9.innerHTML = `<button type="button" id="verCredito" class="btn btn-primary mx-2" data-toggle="modal" data-target="#modalCredito">
         Ver Crédito</button>`
 
-        const part10 = document.createElement("div");
+        const part10 = document.createElement("span");
         part10.innerHTML = `<button type="button" id="print" class="btn btn-primary">
         Imprimir Factura</button>`
 
@@ -323,13 +323,27 @@ function updateStock(itemsOut) {
 };
 
 /* Fin Actualizar Inventario */
-/* Imprimir Factura Pdf */
+/* Imprimir Factura*/
 function preparePrinting() {
     $(function () {
         $("#print").on('click', function () {
-            $.print("#primerDiv");
+            $("#primerDiv").print(
+                {
+                    mediaPrint: false,
+                    stylesheet: "../css/print.css",
+                    noPrintSelector: "button",
+                    iframe: true,
+                    append: null,
+                    prepend: null,
+                    manuallyCopyFormValues: true,
+                    deferred: $.Deferred(),
+                    timeout: 750,
+                    title: null,
+                    doctype: '<!doctype html>'
+                }
+            );
         });
     });
 }
-/*FIn Imprimir Factura Pdf */
+/*FIn Imprimir Factura*/
 
