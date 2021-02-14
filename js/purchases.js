@@ -6,11 +6,11 @@ function agregarItem() {
     ++iclon;
     let item = document.querySelector('.item');
     let clon = item.cloneNode(true);
-    
+
     let clonIdproducto = clon.querySelectorAll("input")[0];
     clonIdproducto.value = "";
     clonIdproducto.id = "idproducto" + iclon;
-    
+
     let clonProducto = clon.querySelectorAll("input")[1];
     clonProducto.value = "";
     clonProducto.id = "producto" + iclon;
@@ -59,7 +59,7 @@ let items = document.querySelector("#items");
 items.addEventListener("keydown", tecla);
 
 /* Rellenar Campos Segun Id Producto */
-let bdproductos;
+let dbStock;
 function actualizarInputIdProductos() {
     let inputIdProducto = document.querySelectorAll(".idproducto");
     inputIdProducto.forEach(element => {
@@ -82,8 +82,8 @@ function llenarInputItemPorId(event) {
 }
 function productoPorId(nid) {
     let producto;
-    bdproductos = JSON.parse(localStorage.getItem("DBstock"));
-    bdproductos.forEach(i => {
+    dbStock = JSON.parse(localStorage.getItem("DBstock"));
+    dbStock.forEach(i => {
         if (i["id"] == nid) {
             producto = i
         }
@@ -107,7 +107,7 @@ function Purchase(id, product, lot) {
     this.lot = Number(lot);
 }
 
-function addStock(){
+function addStock() {
     const purchases = [];
     const items = document.querySelectorAll('.item');
     items.forEach(element => {
@@ -118,19 +118,74 @@ function addStock(){
         );
         purchases.push(purchase);
     });
-    bdproductos = JSON.parse(localStorage.getItem("DBstock"));
-    bdproductos.map(updateStock);
-    localStorage.setItem("DBstock", JSON.stringify(bdproductos));
+    dbStock = JSON.parse(localStorage.getItem("DBstock"));
+    dbStock.map(updateStock);
+    localStorage.setItem("DBstock", JSON.stringify(dbStock));
 
-    function updateStock(item){
-        purchases.map((purchase)=>{
-            if(item.id===purchase.id){
+    function updateStock(item) {
+        purchases.map((purchase) => {
+            if (item.id === purchase.id) {
                 item.stock += purchase.lot;
             };
         });
     };
 };
 
-let btnAddStock = document.querySelector("#addStock");
+const btnAddStock = document.querySelector("#addStock");
 btnAddStock.addEventListener("click", addStock);
 
+/* Añadir Nuevo Item a Inventario */
+validateNewItem();
+function validateNewItem() {
+    const id = document.querySelector("#idNewProducto");
+    const name = document.querySelector("#newProducto");
+    const price = document.querySelector("#newPrecio");
+    const stock = document.querySelector("#newStock");
+    id.oninput = function () {
+        if (this.value.length > 4) {
+            this.value = this.value.slice(0, 4);
+        };
+    };
+    let validate = false;
+    if (id.value && name.value && price.value && stock.value) {
+        validate = true;
+        return { validate: validate, id: id.value, name: name.value, price: price.value, stock: stock.value }
+    }
+    else {
+        return { validate: validate }
+    };
+};
+
+function NewItem(id, nombre, precio, stock) {
+    this.id = Number(id);
+    this.nombre = nombre;
+    this.precio = Number(precio);
+    this.stock = Number(stock);
+}
+function addToStock() {
+    const { validate, id, name, price, stock } = validateNewItem();
+
+    if (validate) {
+        let idNotRepeated = true;
+        dbStock = JSON.parse(localStorage.getItem("DBstock"));
+        dbStock.forEach(i => {
+            if (i.id === Number(id)) {
+                alert(`El Item con Id: ${id} Ya Existe, No Se Permite Duplicar Id En Nuevos Items`);
+                idNotRepeated = false;
+            }
+        });
+        if (idNotRepeated) {
+            const newItem = new NewItem(id, name, price, stock);
+            dbStock.push({...newItem})
+            localStorage.setItem("DBstock", JSON.stringify(dbStock));
+            alert("se agrego el nuevo Item")
+        }
+    }
+    else{
+        alert("todos los campos deben ser rellenados")
+    }
+}
+
+const btnAddToStock = document.querySelector("#addToStock");
+btnAddToStock.addEventListener("click", addToStock);
+/*Fin Añadir Nuevo Item a Inventario */
