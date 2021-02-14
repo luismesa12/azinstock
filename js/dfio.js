@@ -1,12 +1,12 @@
 let totalCompra = 0;
 /* Lista de Productos Aplicando AJAX*/
-let bdproductos;
+let dbStock;
 if (!localStorage.getItem("DBstock")) {
     $.ajax({
         url: 'js/bdProductos.json',
         dataType: 'json',
         success: function (data) {
-            bdproductos = data;
+            dbStock = data;
             localStorage.setItem("DBstock", JSON.stringify(data));
         }
     });
@@ -15,8 +15,8 @@ if (!localStorage.getItem("DBstock")) {
 actualizarInputIdProductos();
 function productoPorId(nid) {
     let producto;
-    bdproductos = JSON.parse(localStorage.getItem("DBstock"));
-    bdproductos.forEach(i => {
+    dbStock = JSON.parse(localStorage.getItem("DBstock"));
+    dbStock.forEach(i => {
         if (i["id"] == nid) {
             producto = i
         }
@@ -60,7 +60,7 @@ function Cliente(nombre, id, tel, ciudad) {
 }
 
 function Compra(id, producto, precio, cantidad) {
-    this.id =Number(id);
+    this.id = Number(id);
     this.producto = producto;
     this.precio = precio;
     this.cantidad = Number(cantidad);
@@ -119,48 +119,52 @@ function facturar() {
         document.querySelector('#tel').value,
         document.querySelector('#ciudad').value
     );
-    stockOk=true;
+    stockOk = true;
     checkStock(compras);
     if (stockOk) {
         let itemsCompra = "";
-        totalCompra = 0;    
+        totalCompra = 0;
         compras.forEach(element => {
             itemsCompra += `${element.producto}  /  $${element.precio}  /  ${element.cantidad}  /  $${element.total()}<br>`
             totalCompra += element.total()
         });
-    
+
         const part1 = document.createElement('p');
         part1.textContent = `Cliente: ${cliente.nombre}`;
-    
+
         const part2 = document.createElement('p');
         part2.textContent = `Id: ${cliente.id}`;
-    
+
         const part3 = document.createElement('p');
         part3.textContent = `Télefono: ${cliente.tel}`;
-    
+
         const part4 = document.createElement('p');
         part4.textContent = `Ciudad: ${cliente.ciudad}`;
-    
+
         const part5 = document.createElement('p');
         part5.innerHTML = `---------------------------------------<br>
         Producto / Precio / Cantidad / Total`;
-    
+
         const part6 = document.createElement('div');
         part6.innerHTML = `${itemsCompra}<br>`;
-    
+
         const part7 = document.createElement('p');
         part7.textContent = `Total a Pagar: $${totalCompra}`;
-    
+
         const part8 = document.createElement('p');
         part8.innerHTML = `---------------------------------------<br>
         ¡¡¡Gracias Por Su Compra!!!<br>
         ---------------------------------------`;
-        const part9 = document.createElement("div");
-        part9.innerHTML = `<button type="button" id="verCredito" class="btn btn-primary" data-toggle="modal" data-target="#modalCredito">
+        const part9 = document.createElement("span");
+        part9.innerHTML = `<button type="button" id="verCredito" class="btn btn-primary mx-2" data-toggle="modal" data-target="#modalCredito">
         Ver Crédito</button>`
-    
+
+        const part10 = document.createElement("span");
+        part10.innerHTML = `<button type="button" id="print" class="btn btn-primary">
+        Imprimir Factura</button>`
+
         const divPrueba = document.querySelector('#primerDiv');
-    
+
         divPrueba.innerHTML = '';
         divPrueba.appendChild(part1);
         divPrueba.appendChild(part2);
@@ -171,8 +175,10 @@ function facturar() {
         divPrueba.appendChild(part7);
         divPrueba.appendChild(part8);
         divPrueba.appendChild(part9);
+        divPrueba.appendChild(part10);
         updateStock(compras);
-    };    
+        preparePrinting();
+    };
 };
 
 
@@ -286,34 +292,58 @@ function resetForm() {
 
 /* Verificar Inventario */
 function checkStock(itemsOut) {
-    bdproductos = JSON.parse(localStorage.getItem("DBstock"));
-    itemsOut.map(item=>{
-        bdproductos.map((product)=>{
-            if (product.id===item.id) {
-                if(item.cantidad>product.stock){
+    dbStock = JSON.parse(localStorage.getItem("DBstock"));
+    itemsOut.map(item => {
+        dbStock.map((product) => {
+            if (product.id === item.id) {
+                if (item.cantidad > product.stock) {
                     alert(`No Hay suficiente Stock del Producto Id: ${product.id} - ${product.nombre}
 Stock Máximo Dispinible = ${product.stock} Unidades`);
-                    stockOk=false;
+                    stockOk = false;
                 };
             };
         });
     });
-    
+
 };
 /* Fin Verificar Inventario */
 /* Actualizar Inventario */
 function updateStock(itemsOut) {
-    bdproductos = JSON.parse(localStorage.getItem("DBstock"));
-    bdproductos.map(decreaseStock);
-    localStorage.setItem("DBstock", JSON.stringify(bdproductos));
+    dbStock = JSON.parse(localStorage.getItem("DBstock"));
+    dbStock.map(decreaseStock);
+    localStorage.setItem("DBstock", JSON.stringify(dbStock));
     function decreaseStock(item) {
-        itemsOut.map((itemOut)=>{
-            if (item.id===itemOut.id) {
-                console.log(item.stock," ",itemOut.cantidad);
+        itemsOut.map((itemOut) => {
+            if (item.id === itemOut.id) {
+                console.log(item.stock, " ", itemOut.cantidad);
                 item.stock -= itemOut.cantidad
             };
-        });        
+        });
     };
-};  
+};
 
 /* Fin Actualizar Inventario */
+/* Imprimir Factura*/
+function preparePrinting() {
+    $(function () {
+        $("#print").on('click', function () {
+            $("#primerDiv").print(
+                {
+                    mediaPrint: false,
+                    stylesheet: "../css/print.css",
+                    noPrintSelector: "button",
+                    iframe: true,
+                    append: null,
+                    prepend: null,
+                    manuallyCopyFormValues: true,
+                    deferred: $.Deferred(),
+                    timeout: 750,
+                    title: null,
+                    doctype: '<!doctype html>'
+                }
+            );
+        });
+    });
+}
+/*FIn Imprimir Factura*/
+
