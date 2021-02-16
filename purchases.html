@@ -66,34 +66,55 @@
             <!-- Fin sidebar -->
             <main class="col-md-10 ms-sm-auto px-md-4">
                 <div class="container">
-                    <!-- Items Entradas-->
-                    <div id="items">
-                        <div class="row item">
-                            <div class="form-group col-2">
-                                <label for="cantidad">Id:</label>
-                                <input type="number" class="form-control idproducto" id="idproducto0"
-                                    placeholder="0000">
-                            </div>
-                            <div class="form-group col-3">
-                                <label for="producto">Producto:</label>
-                                <input type="text" class="form-control" id="producto0" placeholder="pruducto" disabled>
-                            </div>
-                            <div class="form-group col-4">
-                                <label for="stock">Stock Actual:</label>
-                                <input type="number" class="form-control" id="stock0" placeholder="stock" disabled>
-                            </div>
-                            <div class="form-group col-2">
-                                <label for="cantidad">Cantidad:</label>
-                                <input type="number" class="form-control" id="cantidad0" placeholder="cantidad">
-                            </div>
-                            <div class="col-1">
-                                <button type="button" class="eliminarItem btn btn-close btn-danger my-4"></button>
+                    <div class="px-0 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- Items Entradas-->
+                                <h3 class="text-center">Compras</h3>
+                                <h4 class="text-center">Añadir Stock a Unidades Existentes</h4>
+                                <p class="text-center">A continuación podrá añadir la cantidad deseada a un item ya existente en la base de datos.</p>
+                                <div class="container fw-light mt-2">
+                                    <span>Atajos de Teclado:</span>
+                                    <ul>
+                                      <li>Presione "Enter" para Agregar Item</li>
+                                      <li>Presione "Control + Shift + A" para Añadir al Inventario</li>
+                                    </ul>
+                                  </div>
+                                <div id="items">
+                                    <div class="row item">
+                                        <div class="form-group col-2">
+                                            <label for="cantidad">Id:</label>
+                                            <input type="number" class="form-control idproducto" id="idproducto0"
+                                                placeholder="0000">
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <label for="producto">Producto:</label>
+                                            <input type="text" class="form-control" id="producto0"
+                                                placeholder="pruducto" disabled>
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label for="stock">Stock Actual:</label>
+                                            <input type="number" class="form-control" id="stock0" placeholder="stock"
+                                                disabled>
+                                        </div>
+                                        <div class="form-group col-2">
+                                            <label for="cantidad">Cantidad:</label>
+                                            <input type="number" class="form-control" id="cantidad0"
+                                                placeholder="cantidad">
+                                        </div>
+                                        <div class="col-1">
+                                            <button type="button"
+                                                class="eliminarItem btn btn-close btn-danger my-4"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" id="agregarItem">Agregar Item</button>
+                                <button class="btn btn-success" id="addStock">Añadir al Inventario</button>
+                                <!-- Fin Items Entradas-->
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary" id="agregarItem">Agregar Item</button>
-                    <button class="btn btn-success" id="addStock">Añadir al Inventario</button>
-                    <!-- Fin Items Entradas-->
+
                     <!-- Nuevos Items  -->
                     <div id="newItem">
                         <div class="row newItem">
