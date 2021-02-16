@@ -12,9 +12,9 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <!-- styles dashboard-->
     <link href="css/dashboard.css" rel="stylesheet">
- <!-- DataTables -->
- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
- <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css"> -->
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css"> -->
 
 
 </head>
@@ -69,20 +69,28 @@
             </nav>
             <!-- Fin sidebar -->
             <main class="col-md-10 ms-sm-auto px-md-4">
-                <!-- Tabla -->
-                <table id="example" class="table table-hover" style="width:80%">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Id</th>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>Stock</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <!-- FIn Tabla -->
+                <div class="container my-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Tabla -->
+                            <table id="example" class="table table-hover pt-2" style="width:90%">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th>Stock</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                            <!-- FIn Tabla -->
+                        </div>
+                    </div>
+
+                </div>
+
             </main>
         </div>
     </div>
