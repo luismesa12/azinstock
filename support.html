@@ -12,10 +12,6 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <!-- styles dashboard-->
     <link href="css/dashboard.css" rel="stylesheet">
- <!-- DataTables -->
- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
- <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css"> -->
-
 
 </head>
 
@@ -48,7 +44,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="stockP.html">
+                            <a class="nav-link" href="stockP.html">
                                 Inventario
                             </a>
                         </li>
@@ -58,7 +54,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="support.html">
+                            <a class="nav-link active" href="support.html">
                                 Soporte
                             </a>
                         </li>
@@ -69,20 +65,39 @@
             </nav>
             <!-- Fin sidebar -->
             <main class="col-md-10 ms-sm-auto px-md-4">
-                <!-- Tabla -->
-                <table id="example" class="table table-hover" style="width:80%">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Id</th>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>Stock</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <!-- FIn Tabla -->
+                <div class="container">
+                    <!-- Sección Contacto -->
+                    <div id="contacto">
+                        <h2 class="text-center"><span>Soporte</span></h2>
+                        <!-- Formulario Contacto -->
+                        <div class="container">
+                            <form id="formContacto">
+                                <div class="form-group">
+                                    <label for="nombreContacto">Nombre:</label>
+                                    <input type="text" class="form-control" id="nombreContacto" placeholder="Nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label for="emailContato">Email:</label>
+                                    <input type="email" class="form-control" id="emailContato" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tel">Télefono:</label>
+                                    <input type="text" class="form-control" id="telContacto" placeholder="Télefono">
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label for="mensajeContacto">Mensaje:</label>
+                                    <textarea class="form-control" id="mensajeContacto" rows="3"></textarea>
+                                </div>
+                                <button id="submitContacto" type="submit" class="btn btn-primary my-2" disabled>Enviar
+                                    Mensaje</button>
+                                <button id="limpiarContacto" type="submit" class="btn btn-secondary my-2">Limpiar
+                                    Formulario</button>
+                            </form>
+                        </div>
+                        <!-- Formulario Contacto -->
+                    </div>
+                    <!-- Fin Sección Contacto -->
+                </div>
             </main>
         </div>
     </div>
@@ -94,11 +109,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
-    <!-- DataTables -->
-    <script type="text/javascript" charset="utf8"
-        src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
     <!-- JavaScript -->
-    <script src="js/stock.js" type="module"></script>
+    <script src="js/support.js"></script>
 </body>
 
 </html>
