@@ -82,34 +82,27 @@
                         <div class="row mt-5 justify-content-center">
                             <div class="card col-4">
                                 <div class="card-body">
-                                    <h3 class="text-center">Nuevo Producto</h3>
-                                    <h4 class="text-center">Añadir Nuevo Producto al Inventario</h4>
-                                    <p class="text-center">A continuación podrá añadir un nuevo producto a la base de datos.</p>
-                                    <p class="text-center">El sistema <b>no permitirá</b> crear productos con <b>Id duplicado</b>.</p>
-                                    <div class="row newItem">
-                                        <div class="form-group">
-                                            <label for="newCantidad">Id:</label>
-                                            <input type="number" class="form-control idNewProducto" id="idNewProducto"
-                                                placeholder="0000">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="newProducto">Producto:</label>
-                                            <input type="text" class="form-control" id="newProducto"
-                                                placeholder="producto">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="newPrecio">Precio</label>
-                                            <input type="number" class="form-control" id="newPrecio"
-                                                placeholder="Precio">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="newStock">Stock</label>
-                                            <input type="number" class="form-control" id="newStock" placeholder="000">
+                                    <!-- Eliminar Item Inventario-->
+                                    <h3 class="text-center">Eliminar Producto</h3>
+                                    <h4 class="text-center">Eliminar Producto del Inventario</h4>
+                                    <p class="text-center">A continuación podrá eliminar un producto existente en la base de datos.</p>
+                                    <p class="text-center"><b>¡Atemción!</b> este proceso <b>es irreversible</b>.</p>
+                                    <div id="deleteItem">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="delCantidad">Id:</label>
+                                                <input type="number" class="form-control" id="idDelProducto"
+                                                    placeholder="0000">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="delProducto">Producto:</label>
+                                                <input type="text" class="form-control" id="delProducto"
+                                                    placeholder="producto" disabled>
+                                            </div>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary mt-2" id="addToStock">Agregar Nuevo Item Al
-                                        Inventario</button>
-
+                                    <button class="btn btn-danger mt-2" id="delStock">Eliminar Item del Inventario</button>
+                                    <!--Fin Eliminar Item Inventario-->
                                 </div>
                             </div>
                         </div>
@@ -130,7 +123,7 @@
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
     <!-- JavaScript -->
-    <script src="js/newProduct.js" type="module"></script>
+    <script src="js/delProduct.js" type="module"></script>
 </body>
 
 </html>
