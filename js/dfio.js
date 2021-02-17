@@ -131,7 +131,7 @@ function facturar(event) {
         let itemsCompra = "";
         totalCompra = 0;
         compras.forEach(element => {
-            itemsCompra += `*${element.producto.slice(0,17)}.../ $${element.precio} / ${element.cantidad} / $${element.total()}<br>`
+            itemsCompra += `*${element.producto.slice(0, 17)}.../ $${element.precio} / ${element.cantidad} / $${element.total()}<br>`
             totalCompra += element.total()
         });
 
@@ -192,7 +192,12 @@ function facturar(event) {
         divPrueba.appendChild(part10);
         updateStock(compras);
         preparePrinting();
-        alert("Se Facturó Correctamente")
+        Swal.fire({
+            icon: 'success',
+            title: 'Se Facturó Correctamente ➜',
+            text: '',
+            position: 'center-start',
+        });
         factForm.reset();
     };
     event.preventDefault();
@@ -262,14 +267,22 @@ function checkStock(itemsOut) {
     dbStock = JSON.parse(localStorage.getItem("DBstock"));
     itemsOut.map(item => {
         if (item.producto === "Id No Corresponde" || item.cantidad <= 0) {
-            alert(`Al menos un Id ingresado no es correcto, o Cantidad ingresada Inconsistente.`)
+            Swal.fire({
+                icon: 'error',
+                title: 'Algo Salio Mal',
+                text: `Al menos un Id ingresado no es correcto, o la Cantidad ingresada es inconsistente`,
+            });
             stockOk = false;
         }
         dbStock.map((product) => {
             if (product.id === item.id) {
                 if (item.cantidad > product.stock) {
-                    alert(`No Hay suficiente Stock del Producto Id: ${product.id} - ${product.nombre}
-Stock Máximo Dispinible = ${product.stock} Unidades`);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Algo Salio Mal',
+                        text: `No Hay suficiente Stock del Producto Id: ${product.id} - ${product.nombre}
+                        - Stock Máximo Disponible = ${product.stock} Unidades`,
+                    });
                     stockOk = false;
                 };
             };
