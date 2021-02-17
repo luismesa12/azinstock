@@ -307,7 +307,6 @@ function updateStock(itemsOut) {
     function decreaseStock(item) {
         itemsOut.map((itemOut) => {
             if (item.id === itemOut.id) {
-                console.log(item.stock, " ", itemOut.cantidad);
                 item.stock -= itemOut.cantidad
             };
         });

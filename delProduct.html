@@ -10,6 +10,9 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap" rel="stylesheet">
     <!-- styles dashboard-->
     <link href="css/dashboard.css" rel="stylesheet">
 
@@ -39,38 +42,38 @@
                 <div class="position-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                          
+
                             <a class="nav-link" href="index.html">
-                              <i class="fas fa-cash-register"></i> Ventas
+                                <i class="fas fa-cash-register"></i> Ventas
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="purchases.html">
-                              <i class="fas fa-truck-loading"></i> Compras
+                                <i class="fas fa-truck-loading"></i> Compras
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="stock.html">
-                              <i class="fas fa-layer-group"></i> Inventario
+                                <i class="fas fa-layer-group"></i> Inventario
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="newProduct.html">
-                              <i class="fas fa-plus"></i> Nuevo Producto
+                                <i class="fas fa-plus"></i> Nuevo Producto
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="delProduct.html">
-                              <i class="fas fa-trash-alt"></i> Eliminar Producto
+                                <i class="fas fa-trash-alt"></i> Eliminar Producto
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="support.html">
-                              <i class="fas fa-hands-helping"></i> Soporte
+                                <i class="fas fa-hands-helping"></i> Soporte
                             </a>
                         </li>
-        
-        
+
+
                     </ul>
                 </div>
             </nav>
@@ -86,7 +89,8 @@
                                     <!-- Eliminar Item Inventario-->
                                     <h2 class="text-center">Eliminar Producto</h2>
                                     <h6 class="text-center">Eliminar Producto del Inventario</h6>
-                                    <p class="text-center">A continuación podrá eliminar un producto existente en la base de datos.</p>
+                                    <p class="text-center">A continuación podrá eliminar un producto existente en la
+                                        base de datos.</p>
                                     <p class="text-center"><b>¡Atención!</b> este proceso <b>es irreversible</b>.</p>
                                     <div id="deleteItem">
                                         <form class="row" id='delForm'>
@@ -100,7 +104,9 @@
                                                 <input type="text" class="form-control" id="delProducto"
                                                     placeholder="producto" disabled>
                                             </div>
-                                            <button class="btn btn-danger mt-2" id="delStock"><i class="fas fa-exclamation-triangle"></i> Eliminar Item del Inventario</button>
+                                            <button class="btn btn-danger mt-2" id="delStock"><i
+                                                    class="fas fa-exclamation-triangle"></i> Eliminar Item del
+                                                Inventario</button>
                                         </form>
                                     </div>
                                     <!--Fin Eliminar Item Inventario-->
@@ -125,10 +131,10 @@
         crossorigin="anonymous"></script>
     <!-- JavaScript -->
     <script src="js/delProduct.js" type="module"></script>
-      <!-- Fontawesome -->
-  <script src="https://kit.fontawesome.com/2d0a834821.js" crossorigin="anonymous"></script>
-   <!-- SweetAlert -->
-   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/2d0a834821.js" crossorigin="anonymous"></script>
+    <!-- SweetAlert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 
 </html>

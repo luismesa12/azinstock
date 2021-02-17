@@ -17,7 +17,6 @@ function productById(e) {
     dbStock = JSON.parse(localStorage.getItem("DBstock"));
     dbStock.forEach(i => {
         if (i.id === Number(e.target.value)) {
-            console.log(e.target.value, "borrar");
             delProducto.value = i.nombre;
             idFound = true;
             index = dbStock.indexOf(i);

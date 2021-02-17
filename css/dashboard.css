@@ -1,5 +1,6 @@
 body {
   font-size: .875rem;
+  font-family: 'Exo', sans-serif;
 }
 
 /*
@@ -22,10 +23,12 @@ body {
   color: #333;
   padding:  0 0.2em 2.5em 2.5em;
 }
-
+.sidebar .nav-link:hover {
+  color: #969696;
+}
 
 .sidebar .nav-link.active {
-  color: #b3b3b3;
+  color: #969696;
 }
 
 .sidebar .position-sticky{
@@ -63,5 +66,6 @@ input[type=number] { -moz-appearance:textfield; }
 }
 /* Factura */
 #primerDiv{
+  font-family: var(--bs-font-sans-serif);
   font-size: 0.7em;
 }
