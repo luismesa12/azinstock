@@ -321,7 +321,7 @@ function preparePrinting() {
             $("#primerDiv").print(
                 {
                     mediaPrint: false,
-                    stylesheet: "../css/print.css",
+                    stylesheet: "css/print.css",
                     noPrintSelector: "button",
                     iframe: true,
                     append: null,
