@@ -131,7 +131,7 @@ function facturar(event) {
         let itemsCompra = "";
         totalCompra = 0;
         compras.forEach(element => {
-            itemsCompra += `${element.producto}  /  $${element.precio}  /  ${element.cantidad}  /  $${element.total()}<br>`
+            itemsCompra += `*${element.producto.slice(0,17)}.../ $${element.precio} / ${element.cantidad} / $${element.total()}<br>`
             totalCompra += element.total()
         });
 
@@ -148,8 +148,9 @@ function facturar(event) {
         part4.textContent = `Ciudad: ${cliente.ciudad}`;
 
         const part5 = document.createElement('p');
-        part5.innerHTML = `---------------------------------------<br>
-        Producto / Precio / Cantidad / Total`;
+        part5.innerHTML = `
+        ---------------------------------------------------------<br>
+   <pre>/       Producto       /Precio/Cantidad/Total/</pre>`;
 
         const part6 = document.createElement('div');
         part6.innerHTML = `${itemsCompra}<br>`;
@@ -158,9 +159,10 @@ function facturar(event) {
         part7.textContent = `Total a Pagar: $${totalCompra}`;
 
         const part8 = document.createElement('p');
-        part8.innerHTML = `---------------------------------------<br>
-        ¡¡¡Gracias Por Su Compra!!!<br>
-        ---------------------------------------`;
+        part8.innerHTML = `
+        ---------------------------------------------------------<br>
+         -------------¡¡¡Gracias Por Su Compra!!!-------------<br>
+        ---------------------------------------------------------`;
         const part9 = document.createElement("span");
         part9.innerHTML = `<button type="button" id="verCredito" class="btn btn-outline-dark mx-2" data-bs-toggle="modal" data-bs-target="#modalCredito">
         Ver Crédito</button>`
@@ -171,7 +173,13 @@ function facturar(event) {
 
         const divPrueba = document.querySelector('#primerDiv');
 
-        divPrueba.innerHTML = '';
+        divPrueba.innerHTML = `
+        ---------------------------------------------------------<br>
+        Factura de venta--------------------------Tu Negocio<br>
+        -------------------Responsable de Iva-----------------<br>
+         Fecha: ${new Date().toLocaleDateString()}----------------------Hora: ${new Date().toLocaleTimeString()}<br>
+        ---------------------------------------------------------
+        `;
         divPrueba.appendChild(part1);
         divPrueba.appendChild(part2);
         divPrueba.appendChild(part3);
