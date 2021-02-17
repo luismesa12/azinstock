@@ -203,7 +203,6 @@ function facturar(event) {
     event.preventDefault();
 };
 
-
 function tecla(e) {
     if (e.key === "Enter" || e.keyCode === 13) {
         e.preventDefault();

@@ -121,14 +121,14 @@ function addStock() {
         );
         purchases.push(purchase);
     });
-    check=true;
+    check = true;
     checkForm(purchases);
     if (check) {
         dbStock = JSON.parse(localStorage.getItem("DBstock"));
         dbStock.map(updateStock);
-    
+
         localStorage.setItem("DBstock", JSON.stringify(dbStock));
-    
+
         function updateStock(item) {
             purchases.map((purchase) => {
                 if (item.id === purchase.id) {
@@ -136,8 +136,15 @@ function addStock() {
                 };
             });
         };
-        alert(`!Se añadieron las unidades correctamente!`)
-        document.location.reload();
+        (async () => {
+            await Swal.fire({
+                icon: 'success',
+                title: `!Se añadieron las unidades correctamente!`,
+                text: '',
+            });
+
+            document.location.reload();
+        })();
     }
 };
 
@@ -148,8 +155,12 @@ btnAddStock.addEventListener("click", addStock);
 
 function checkForm(purchases) {
     purchases.map(item => {
-        if (item.product==="Id No Corresponde"||item.lot<=0) {
-            alert(`Al menos un Id ingresado no es correcto, o Cantidad ingresada Inconsistente.`)
+        if (item.product === "Id No Corresponde" || item.lot <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: `Algo Salió Mal`,
+                text: `Al menos un Id ingresado no es correcto, o la cantidad ingresada es Inconsistente`,
+            });
             check = false;
         }
     });
