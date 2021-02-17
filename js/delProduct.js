@@ -33,11 +33,22 @@ function deleteItem(e) {
             dbStock.splice(index,1);
             localStorage.setItem("DBstock", JSON.stringify(dbStock));
             index = undefined;
-            alert("Se eliminó El Item")
-            document.location.reload();
+            (async () => {
+                await Swal.fire({
+                    icon: 'success',
+                    title: `!Se eliminó El Item!`,
+                    text: '',
+                });
+                
+                document.location.reload();
+            })();
         }
         else{
-            alert("Id No Existe En Stock")
+            Swal.fire({
+                icon: 'error',
+                title: 'Algo Salio Mal',
+                text: `Id No Existe En Stock`,
+            });
         }
         e.preventDefault();
 }
