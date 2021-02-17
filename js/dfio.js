@@ -70,7 +70,7 @@ function Compra(id, producto, precio, cantidad) {
 }
 /* Agregar Item */
 let iclon = 0;
-function agregarItem(event) {
+function agregarItem() {
     ++iclon;
     let item = document.querySelector('.item');
     let clon = item.cloneNode(true);
@@ -96,7 +96,7 @@ function agregarItem(event) {
     /*  */
     actualizarBotonesEliminar();
     actualizarInputIdProductos();
-    event.preventDefault();
+    // event.preventDefault();
 
 }
 
@@ -179,13 +179,13 @@ function facturar(event) {
         divPrueba.appendChild(part10);
         updateStock(compras);
         preparePrinting();
-        event.preventDefault();
     };
+    event.preventDefault();
 };
 
 
 function tecla(e) {
-    if (e.key == "Enter" || e.keyCode == 13) {
+    if (e.key === "Enter" || e.keyCode === 13) {
         e.preventDefault();
         agregarItem();
     }
@@ -246,6 +246,10 @@ selectCuotas.addEventListener("change", calcularMensualidad)
 function checkStock(itemsOut) {
     dbStock = JSON.parse(localStorage.getItem("DBstock"));
     itemsOut.map(item => {
+        if (item.producto==="Id No Corresponde"||item.cantidad<=0) {
+            alert(`Al menos un Id ingresado no es correcto, o Cantidad ingresada Inconsistente.`)
+            stockOk = false;
+        }
         dbStock.map((product) => {
             if (product.id === item.id) {
                 if (item.cantidad > product.stock) {
