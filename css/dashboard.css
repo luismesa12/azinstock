@@ -20,7 +20,7 @@ body {
   font-size: 1.3em;
   font-weight: 700;
   color: #333;
-  padding-left: 2.5em;
+  padding:  0 0.2em 2.5em 2.5em;
 }
 
 
@@ -28,6 +28,9 @@ body {
   color: #b3b3b3;
 }
 
+.sidebar .position-sticky{
+  padding: 4em 0;
+}
 
 /*
  * Navbar
