@@ -46,7 +46,6 @@ function llenarInputItemPorId(event) {
 
     document.querySelector(idNombreProducto).value = productoPorId(valueInputId).nombre;
     document.querySelector(idPrecio).value = productoPorId(valueInputId).precio;
-    document.querySelector(idCantidad).value = productoPorId(valueInputId).precio != 0 ? 1 : 0;
 }
 
 /* Fin Lista de Productos Aplicando AJAX*/
@@ -71,7 +70,7 @@ function Compra(id, producto, precio, cantidad) {
 }
 /* Agregar Item */
 let iclon = 0;
-function agregarItem() {
+function agregarItem(event) {
     ++iclon;
     let item = document.querySelector('.item');
     let clon = item.cloneNode(true);
@@ -97,11 +96,14 @@ function agregarItem() {
     /*  */
     actualizarBotonesEliminar();
     actualizarInputIdProductos();
+    event.preventDefault();
+
 }
 
 /* Facturar */
 let stockOk;
-function facturar() {
+function facturar(event) {
+    event.preventDefault();
     let compras = [];
     let items = document.querySelectorAll('.item');
     items.forEach(element => {
@@ -197,8 +199,8 @@ function tecla(e) {
 let botonAgregarItem = document.querySelector("#agregarItem");
 botonAgregarItem.addEventListener("click", agregarItem);
 
-let botonFacturar = document.querySelector("#facturar");
-botonFacturar.addEventListener("click", facturar);
+let factForm = document.querySelector("#factForm");
+factForm.addEventListener('submit', facturar);
 
 let items = document.querySelector("#items");
 items.addEventListener("keydown", tecla);
