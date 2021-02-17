@@ -192,6 +192,8 @@ function facturar(event) {
         divPrueba.appendChild(part10);
         updateStock(compras);
         preparePrinting();
+        alert("Se Facturó Correctamente")
+        factForm.reset();
     };
     event.preventDefault();
 };
