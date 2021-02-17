@@ -39,6 +39,9 @@ function addToStock(e) {
                     icon: 'error',
                     title: 'Algo Salio Mal',
                     text: `El Item con Id: ${id} Ya Existe, No Se Permite Duplicar Id En Nuevos Items`,
+                    timer: 4000,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
                 });
                 idNotRepeated = false;
             }
@@ -52,6 +55,9 @@ function addToStock(e) {
                     icon: 'success',
                     title: `se agrego el nuevo Item`,
                     text: '',
+                    timer: 2000,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
                 });
                 
                 document.location.reload();
@@ -63,6 +69,9 @@ function addToStock(e) {
             icon: 'error',
             title: 'Algo Salio Mal',
             text: `Todos Los Campos Deben Ser Rellenados`,
+            timer: 2600,
+            timerProgressBar: true,
+            showConfirmButton: false,
         });
     }
     e.preventDefault();

@@ -141,6 +141,9 @@ function addStock() {
                 icon: 'success',
                 title: `!Se añadieron las unidades correctamente!`,
                 text: '',
+                timer: 2300,
+                timerProgressBar: true,
+                showConfirmButton: false,
             });
 
             document.location.reload();
@@ -160,6 +163,9 @@ function checkForm(purchases) {
                 icon: 'error',
                 title: `Algo Salió Mal`,
                 text: `Al menos un Id ingresado no es correcto, o la cantidad ingresada es Inconsistente`,
+                timer: 4000,
+                timerProgressBar: true,
+                showConfirmButton: false,
             });
             check = false;
         }

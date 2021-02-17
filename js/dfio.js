@@ -197,6 +197,9 @@ function facturar(event) {
             title: 'Se Facturó Correctamente ➜',
             text: '',
             position: 'center-start',
+            timer: 2000,
+            timerProgressBar: true,
+            showConfirmButton: false,
         });
         factForm.reset();
     };
@@ -270,6 +273,9 @@ function checkStock(itemsOut) {
                 icon: 'error',
                 title: 'Algo Salio Mal',
                 text: `Al menos un Id ingresado no es correcto, o la Cantidad ingresada es inconsistente`,
+                timer: 4000,
+                timerProgressBar: true,
+                showConfirmButton: false,
             });
             stockOk = false;
         }
@@ -281,6 +287,9 @@ function checkStock(itemsOut) {
                         title: 'Algo Salio Mal',
                         text: `No Hay suficiente Stock del Producto Id: ${product.id} - ${product.nombre}
                         - Stock Máximo Disponible = ${product.stock} Unidades`,
+                        timer: 5000,
+                        timerProgressBar: true,
+                        showConfirmButton: false,
                     });
                     stockOk = false;
                 };
