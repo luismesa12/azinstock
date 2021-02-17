@@ -156,11 +156,11 @@ function facturar() {
         ¡¡¡Gracias Por Su Compra!!!<br>
         ---------------------------------------`;
         const part9 = document.createElement("span");
-        part9.innerHTML = `<button type="button" id="verCredito" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#modalCredito">
+        part9.innerHTML = `<button type="button" id="verCredito" class="btn btn-outline-dark mx-2" data-bs-toggle="modal" data-bs-target="#modalCredito">
         Ver Crédito</button>`
 
         const part10 = document.createElement("span");
-        part10.innerHTML = `<button type="button" id="print" class="btn btn-primary">
+        part10.innerHTML = `<button type="button" id="print" class="btn btn-outline-dark">
         Imprimir Factura</button>`
 
         const divPrueba = document.querySelector('#primerDiv');
