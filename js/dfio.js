@@ -135,16 +135,16 @@ function facturar(event) {
             totalCompra += element.total()
         });
 
-        const part1 = document.createElement('p');
+        const part1 = document.createElement('div');
         part1.textContent = `Cliente: ${cliente.nombre}`;
 
-        const part2 = document.createElement('p');
+        const part2 = document.createElement('div');
         part2.textContent = `Id: ${cliente.id}`;
 
-        const part3 = document.createElement('p');
+        const part3 = document.createElement('div');
         part3.textContent = `Télefono: ${cliente.tel}`;
 
-        const part4 = document.createElement('p');
+        const part4 = document.createElement('div');
         part4.textContent = `Ciudad: ${cliente.ciudad}`;
 
         const part5 = document.createElement('p');
@@ -161,15 +161,15 @@ function facturar(event) {
         const part8 = document.createElement('p');
         part8.innerHTML = `
         ---------------------------------------------------------<br>
-         -------------¡¡¡Gracias Por Su Compra!!!-------------<br>
+        --------------¡¡¡Gracias Por Su Compra!!!-------------<br>
         ---------------------------------------------------------`;
         const part9 = document.createElement("span");
-        part9.innerHTML = `<button type="button" id="verCredito" class="btn btn-outline-dark mx-2" data-bs-toggle="modal" data-bs-target="#modalCredito">
-        Ver Crédito</button>`
+        part9.innerHTML = `<div class="d-grid gap-2 mb-2 mx-auto"><button type="button" id="verCredito" class="btn btn-outline-dark mx-2" data-bs-toggle="modal" data-bs-target="#modalCredito">
+        <i class="fas fa-credit-card"></i> Ver Crédito</button></div>`
 
         const part10 = document.createElement("span");
-        part10.innerHTML = `<button type="button" id="print" class="btn btn-outline-dark">
-        Imprimir Factura</button>`
+        part10.innerHTML = `<div class="d-grid gap-2 mx-auto"><button type="button" id="print" class="btn btn-outline-dark">
+        <i class="fas fa-print"></i> Imprimir Factura</button></div>`
 
         const divPrueba = document.querySelector('#primerDiv');
 
