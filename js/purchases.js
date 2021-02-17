@@ -64,6 +64,11 @@ function actualizarInputIdProductos() {
     let inputIdProducto = document.querySelectorAll(".idproducto");
     inputIdProducto.forEach(element => {
         element.addEventListener("keyup", llenarInputItemPorId);
+        element.oninput = function () {
+            if (this.value.length > 4) {
+                this.value = this.value.slice(0, 4);
+            };
+        };
     });
 }
 
@@ -74,7 +79,6 @@ function llenarInputItemPorId(event) {
     let valueInputId = document.querySelector(`#${idp}`).value;
     let idNombreProducto = "#producto" + idp.slice(10);
     let idstock = "#stock" + idp.slice(10);
-    let idCantidad = "#cantidad" + idp.slice(10);
 
     document.querySelector(idNombreProducto).value = productoPorId(valueInputId).nombre;
     document.querySelector(idstock).value = productoPorId(valueInputId).stock;
@@ -105,7 +109,7 @@ function Purchase(id, product, lot) {
     this.product = product;
     this.lot = Number(lot);
 }
-
+let check;
 function addStock() {
     const purchases = [];
     const items = document.querySelectorAll('.item');
@@ -117,20 +121,36 @@ function addStock() {
         );
         purchases.push(purchase);
     });
-    dbStock = JSON.parse(localStorage.getItem("DBstock"));
-    dbStock.map(updateStock);
-    localStorage.setItem("DBstock", JSON.stringify(dbStock));
-
-    function updateStock(item) {
-        purchases.map((purchase) => {
-            if (item.id === purchase.id) {
-                item.stock += purchase.lot;
-            };
-        });
-    };
+    check=true;
+    checkForm(purchases);
+    if (check) {
+        dbStock = JSON.parse(localStorage.getItem("DBstock"));
+        dbStock.map(updateStock);
+    
+        localStorage.setItem("DBstock", JSON.stringify(dbStock));
+    
+        function updateStock(item) {
+            purchases.map((purchase) => {
+                if (item.id === purchase.id) {
+                    item.stock += purchase.lot;
+                };
+            });
+        };
+        alert(`!Se añadieron las unidades correctamente!`)
+    }
 };
 
 const btnAddStock = document.querySelector("#addStock");
 btnAddStock.addEventListener("click", addStock);
 
+/* Verificar Formulario */
 
+function checkForm(purchases) {
+    purchases.map(item => {
+        if (item.product==="Id No Corresponde"||item.lot<=0) {
+            alert(`Al menos un Id ingresado no es correcto, o Cantidad ingresada Inconsistente.`)
+            check = false;
+        }
+    });
+
+};
