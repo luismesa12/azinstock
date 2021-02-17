@@ -139,7 +139,7 @@ function addStock() {
         (async () => {
             await Swal.fire({
                 icon: 'success',
-                title: `!Se añadieron las unidades correctamente!`,
+                title: `¡Se añadieron las unidades correctamente!`,
                 text: '',
                 timer: 2300,
                 timerProgressBar: true,

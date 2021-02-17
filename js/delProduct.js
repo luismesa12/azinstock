@@ -48,7 +48,7 @@ function deleteItem(e) {
     else {
         Swal.fire({
             icon: 'error',
-            title: 'Algo Salio Mal',
+            title: 'Algo Salió Mal',
             text: `Id No Existe En Stock`,
             timer: 2000,
             timerProgressBar: true,

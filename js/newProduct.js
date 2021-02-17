@@ -37,7 +37,7 @@ function addToStock(e) {
             if (i.id === Number(id)) {
                 Swal.fire({
                     icon: 'error',
-                    title: 'Algo Salio Mal',
+                    title: 'Algo Salió Mal',
                     text: `El Item con Id: ${id} Ya Existe, No Se Permite Duplicar Id En Nuevos Items`,
                     timer: 4000,
                     timerProgressBar: true,
@@ -48,26 +48,26 @@ function addToStock(e) {
         });
         if (idNotRepeated) {
             const newItem = new NewItem(id, name, price, stock);
-            dbStock.push({...newItem})
+            dbStock.push({ ...newItem })
             localStorage.setItem("DBstock", JSON.stringify(dbStock));
             (async () => {
                 await Swal.fire({
                     icon: 'success',
-                    title: `se agrego el nuevo Item`,
+                    title: `Se Agregó el Nuevo Item`,
                     text: '',
                     timer: 2000,
                     timerProgressBar: true,
                     showConfirmButton: false,
                 });
-                
+
                 document.location.reload();
             })();//se autoinvoca
         }
     }
-    else{
+    else {
         Swal.fire({
             icon: 'error',
-            title: 'Algo Salio Mal',
+            title: 'Algo Salió Mal',
             text: `Todos Los Campos Deben Ser Rellenados`,
             timer: 2600,
             timerProgressBar: true,

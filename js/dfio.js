@@ -271,7 +271,7 @@ function checkStock(itemsOut) {
         if (item.producto === "Id No Corresponde" || item.cantidad <= 0) {
             Swal.fire({
                 icon: 'error',
-                title: 'Algo Salio Mal',
+                title: 'Algo Salió Mal',
                 text: `Al menos un Id ingresado no es correcto, o la Cantidad ingresada es inconsistente`,
                 timer: 4000,
                 timerProgressBar: true,
@@ -284,7 +284,7 @@ function checkStock(itemsOut) {
                 if (item.cantidad > product.stock) {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Algo Salio Mal',
+                        title: 'Algo Salió Mal',
                         text: `No Hay suficiente Stock del Producto Id: ${product.id} - ${product.nombre}
                         - Stock Máximo Disponible = ${product.stock} Unidades`,
                         timer: 5000,
@@ -342,4 +342,4 @@ const formatterPeso = new Intl.NumberFormat('es-CO', {
     style: 'currency',
     currency: 'COP',
     minimumFractionDigits: 0
-  });
+});
