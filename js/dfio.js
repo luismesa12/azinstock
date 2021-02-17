@@ -177,7 +177,7 @@ function facturar(event) {
         ---------------------------------------------------------<br>
         Factura de venta--------------------------Tu Negocio<br>
         -------------------Responsable de Iva-----------------<br>
-         Fecha: ${new Date().toLocaleDateString()}----------------------Hora: ${new Date().toLocaleTimeString()}<br>
+         Fecha: ${new Date().toLocaleDateString()}----------------Hora: ${new Date().toLocaleTimeString()}<br>
         ---------------------------------------------------------
         `;
         divPrueba.appendChild(part1);

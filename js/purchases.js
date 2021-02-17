@@ -137,6 +137,7 @@ function addStock() {
             });
         };
         alert(`!Se añadieron las unidades correctamente!`)
+        document.location.reload();
     }
 };
 

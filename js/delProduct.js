@@ -34,6 +34,7 @@ function deleteItem(e) {
             localStorage.setItem("DBstock", JSON.stringify(dbStock));
             index = undefined;
             alert("Se eliminó El Item")
+            document.location.reload();
         }
         else{
             alert("Id No Existe En Stock")

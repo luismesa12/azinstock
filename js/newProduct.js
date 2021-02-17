@@ -44,6 +44,7 @@ function addToStock(e) {
             dbStock.push({...newItem})
             localStorage.setItem("DBstock", JSON.stringify(dbStock));
             alert("se agrego el nuevo Item")
+            document.location.reload();
         }
     }
     else{
