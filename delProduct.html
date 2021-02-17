@@ -89,7 +89,7 @@
                                     <p class="text-center">A continuación podrá eliminar un producto existente en la base de datos.</p>
                                     <p class="text-center"><b>¡Atención!</b> este proceso <b>es irreversible</b>.</p>
                                     <div id="deleteItem">
-                                        <div class="row">
+                                        <form class="row" id='delForm'>
                                             <div class="mb-1">
                                                 <label for="delCantidad">Id:</label>
                                                 <input type="number" class="form-control" id="idDelProducto"
@@ -100,9 +100,9 @@
                                                 <input type="text" class="form-control" id="delProducto"
                                                     placeholder="producto" disabled>
                                             </div>
-                                        </div>
+                                            <button class="btn btn-danger mt-2" id="delStock"><i class="fas fa-exclamation-triangle"></i> Eliminar Item del Inventario</button>
+                                        </form>
                                     </div>
-                                    <button class="btn btn-danger mt-2" id="delStock"><i class="fas fa-exclamation-triangle"></i> Eliminar Item del Inventario</button>
                                     <!--Fin Eliminar Item Inventario-->
                                 </div>
                             </div>

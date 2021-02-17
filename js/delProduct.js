@@ -2,9 +2,9 @@
 let dbStock;
 const idDelProducto = document.querySelector("#idDelProducto");
 const delProducto = document.querySelector("#delProducto");
-const btndelStock = document.querySelector('#delStock');
+const delForm = document.querySelector('#delForm');
 idDelProducto.addEventListener("keyup", productById);
-btndelStock.addEventListener("click", deleteItem)
+delForm.addEventListener("submit", deleteItem)
 let index;
 function productById(e) {
     idDelProducto.oninput = ()=> {
@@ -27,7 +27,7 @@ function productById(e) {
         delProducto.value = "Id No Existe En Stock";
     };
 };
-function deleteItem() {
+function deleteItem(e) {
         if (index) {
             dbStock = JSON.parse(localStorage.getItem("DBstock"));
             dbStock.splice(index,1);
@@ -38,5 +38,6 @@ function deleteItem() {
         else{
             alert("Id No Existe En Stock")
         }
+        e.preventDefault();
 }
 /*Fin Eliminar Item */
