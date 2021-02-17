@@ -27,7 +27,7 @@ function NewItem(id, nombre, precio, stock) {
     this.precio = Number(precio);
     this.stock = Number(stock);
 }
-function addToStock() {
+function addToStock(e) {
     const { validate, id, name, price, stock } = validateNewItem();
 
     if (validate) {
@@ -49,8 +49,9 @@ function addToStock() {
     else{
         alert("todos los campos deben ser rellenados")
     }
-}
+    e.preventDefault();
+};
 
-const btnAddToStock = document.querySelector("#addToStock");
-btnAddToStock.addEventListener("click", addToStock);
+const AddToStock = document.querySelector("#newPForm");
+AddToStock.addEventListener("submit", addToStock);
 /*Fin Añadir Nuevo Item a Inventario */

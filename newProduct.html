@@ -87,11 +87,11 @@
                                     <h6 class="text-center">Añadir Nuevo Producto al Inventario</h6>
                                     <p class="text-center">A continuación podrá añadir un nuevo producto a la base de datos.</p>
                                     <p class="text-center">El sistema <b>no permitirá</b> crear productos con <b>Id duplicado</b>.</p>
-                                    <div class="row newItem">
+                                    <form class="row newItem" id="newPForm">
                                         <div class="mb-1">
                                             <label for="newCantidad">Id:</label>
                                             <input type="number" class="form-control idNewProducto" id="idNewProducto"
-                                                placeholder="0000">
+                                                placeholder="0000" min='0'>
                                         </div>
                                         <div class="mb-1">
                                             <label for="newProducto">Producto:</label>
@@ -101,15 +101,15 @@
                                         <div class="mb-1">
                                             <label for="newPrecio">Precio</label>
                                             <input type="number" class="form-control" id="newPrecio"
-                                                placeholder="Precio">
+                                                placeholder="Precio" min='0'>
                                         </div>
                                         <div class="mb-1">
                                             <label for="newStock">Stock</label>
-                                            <input type="number" class="form-control" id="newStock" placeholder="000">
+                                            <input type="number" class="form-control" id="newStock" placeholder="000" min='0'>
                                         </div>
-                                    </div>
-                                    <button class="btn btn-outline-dark mt-2" id="addToStock"><i class="fas fa-plus"></i> Agregar Nuevo Item Al
-                                        Inventario</button>
+                                        <button class="btn btn-outline-dark mt-2" id="addToStock"><i class="fas fa-plus"></i> Agregar Nuevo Item Al
+                                            Inventario</button>
+                                    </form>
 
                                 </div>
                             </div>
