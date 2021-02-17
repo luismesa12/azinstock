@@ -103,7 +103,6 @@ function agregarItem(event) {
 /* Facturar */
 let stockOk;
 function facturar(event) {
-    event.preventDefault();
     let compras = [];
     let items = document.querySelectorAll('.item');
     items.forEach(element => {
@@ -112,17 +111,17 @@ function facturar(event) {
             element.querySelectorAll("input")[1].value,
             element.querySelectorAll("input")[2].value,
             element.querySelectorAll("input")[3].value
-        );
-        compras.push(compra);
-    });
-    const cliente = new Cliente(
-        document.querySelector('#nombre').value,
-        document.querySelector('#id').value,
-        document.querySelector('#tel').value,
-        document.querySelector('#ciudad').value
-    );
-    stockOk = true;
-    checkStock(compras);
+            );
+            compras.push(compra);
+        });
+        const cliente = new Cliente(
+            document.querySelector('#nombre').value,
+            document.querySelector('#id').value,
+            document.querySelector('#tel').value,
+            document.querySelector('#ciudad').value
+            );
+            stockOk = true;
+            checkStock(compras);
     if (stockOk) {
         let itemsCompra = "";
         totalCompra = 0;
@@ -130,29 +129,29 @@ function facturar(event) {
             itemsCompra += `${element.producto}  /  $${element.precio}  /  ${element.cantidad}  /  $${element.total()}<br>`
             totalCompra += element.total()
         });
-
+        
         const part1 = document.createElement('p');
         part1.textContent = `Cliente: ${cliente.nombre}`;
-
+        
         const part2 = document.createElement('p');
         part2.textContent = `Id: ${cliente.id}`;
-
+        
         const part3 = document.createElement('p');
         part3.textContent = `Télefono: ${cliente.tel}`;
 
         const part4 = document.createElement('p');
         part4.textContent = `Ciudad: ${cliente.ciudad}`;
-
+        
         const part5 = document.createElement('p');
         part5.innerHTML = `---------------------------------------<br>
         Producto / Precio / Cantidad / Total`;
-
+        
         const part6 = document.createElement('div');
         part6.innerHTML = `${itemsCompra}<br>`;
-
+        
         const part7 = document.createElement('p');
         part7.textContent = `Total a Pagar: $${totalCompra}`;
-
+        
         const part8 = document.createElement('p');
         part8.innerHTML = `---------------------------------------<br>
         ¡¡¡Gracias Por Su Compra!!!<br>
@@ -160,13 +159,13 @@ function facturar(event) {
         const part9 = document.createElement("span");
         part9.innerHTML = `<button type="button" id="verCredito" class="btn btn-outline-dark mx-2" data-bs-toggle="modal" data-bs-target="#modalCredito">
         Ver Crédito</button>`
-
+        
         const part10 = document.createElement("span");
         part10.innerHTML = `<button type="button" id="print" class="btn btn-outline-dark">
         Imprimir Factura</button>`
-
+        
         const divPrueba = document.querySelector('#primerDiv');
-
+        
         divPrueba.innerHTML = '';
         divPrueba.appendChild(part1);
         divPrueba.appendChild(part2);
@@ -180,6 +179,7 @@ function facturar(event) {
         divPrueba.appendChild(part10);
         updateStock(compras);
         preparePrinting();
+        event.preventDefault();
     };
 };
 
@@ -190,8 +190,9 @@ function tecla(e) {
         agregarItem();
     }
     else if (e.key === 'F' && e.ctrlKey && e.shiftKey) {
+        const btnSubmit = document.querySelector("#facturar");
+        btnSubmit.click();
         e.preventDefault();
-        facturar();
     }
 }
 
