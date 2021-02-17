@@ -1,507 +1,302 @@
 [
 	{
-		"id": 5599,
-		"precio": 3063866,
-		"nombre": "fringilla",
-		"stock": 110
+		"id": 1000,
+		"nombre": "Computador",
+		"precio": 3500000,
+		"stock": 4
 	},
 	{
-		"id": 7286,
-		"precio": 1852706,
-		"nombre": "erat",
-		"stock": 120
+		"id": 1001,
+		"nombre": "Impresora",
+		"precio": 2060000,
+		"stock": 2
 	},
 	{
-		"id": 4897,
-		"precio": 1641938,
-		"nombre": "ligula.",
-		"stock": 130
+		"id": 1002,
+		"nombre": "CARTUCHO SAMSUN MP2 80",
+		"precio": 198000,
+		"stock": 4
 	},
 	{
-		"id": 7489,
-		"precio": 2644023,
-		"nombre": "eu",
-		"stock": 140
+		"id": 1003,
+		"nombre": "CARTUCHO COLOR HP 60",
+		"precio": 56000,
+		"stock": 3
 	},
 	{
-		"id": 4009,
-		"precio": 2709580,
-		"nombre": "ligula.",
-		"stock": 150
+		"id": 1004,
+		"nombre": "CARTUCHO NEGRO HP 60",
+		"precio": 52000,
+		"stock": 3
 	},
 	{
-		"id": 3799,
-		"precio": 3693415,
-		"nombre": "Fusce"
+		"id": 1005,
+		"nombre": "CORRECTOR LIQUIDO",
+		"precio": 1500,
+		"stock": 3
 	},
 	{
-		"id": 1220,
-		"precio": 1434877,
-		"nombre": "felis"
+		"id": 1006,
+		"nombre": "PAPEL TAMAÑO CARTA 75G-X10 RESMA",
+		"precio": 91500,
+		"stock": 6
 	},
 	{
-		"id": 9942,
-		"precio": 141044,
-		"nombre": "Cras"
+		"id": 1007,
+		"nombre": "PAPEL TAMALO OFICIO",
+		"precio": 10800,
+		"stock": 4
 	},
 	{
-		"id": 3610,
-		"precio": 1139703,
-		"nombre": "faucibus."
+		"id": 1008,
+		"nombre": "CARTULINA COLOR VERDE CLARO",
+		"precio": 950,
+		"stock": 30
 	},
 	{
-		"id": 7248,
-		"precio": 2971751,
-		"nombre": "erat,"
+		"id": 1009,
+		"nombre": "GANCHOS PARA LEGAJAR PLASTICOS",
+		"precio": 1400,
+		"stock": 15
 	},
 	{
-		"id": 3704,
-		"precio": 1606538,
-		"nombre": "Integer"
+		"id": 1010,
+		"nombre": "LAPICEROS NEGROS X12",
+		"precio": 4600,
+		"stock": 4
 	},
 	{
-		"id": 9691,
-		"precio": 3630248,
-		"nombre": "consequat"
+		"id": 1011,
+		"nombre": "SOBRE DE MANILA TAMAÑO CARTA",
+		"precio": 10500,
+		"stock": 1
 	},
 	{
-		"id": 3689,
-		"precio": 485629,
-		"nombre": "sit"
+		"id": 1012,
+		"nombre": "SOBRE DE MANILA TAMAÑO OFICIO",
+		"precio": 12500,
+		"stock": 3
 	},
 	{
-		"id": 8831,
-		"precio": 2742545,
-		"nombre": "Fusce"
+		"id": 1013,
+		"nombre": "BISTURI ",
+		"precio": 4900,
+		"stock": 2
 	},
 	{
-		"id": 1403,
-		"precio": 2819684,
-		"nombre": "montes,"
+		"id": 1014,
+		"nombre": "RESALTADOR",
+		"precio": 1500,
+		"stock": 6
 	},
 	{
-		"id": 7710,
-		"precio": 1902744,
-		"nombre": "a"
+		"id": 1015,
+		"nombre": "PEGASTICK GRANDE",
+		"precio": 4400,
+		"stock": 15
 	},
 	{
-		"id": 5510,
-		"precio": 3145715,
-		"nombre": "quis"
+		"id": 1016,
+		"nombre": "CINTADE EMPAQUE TRANSPARENTE",
+		"precio": 1850,
+		"stock": 20
 	},
 	{
-		"id": 5140,
-		"precio": 2955873,
-		"nombre": "tortor."
+		"id": 1017,
+		"nombre": "SACA GANCHOS",
+		"precio": 1600,
+		"stock": 3
 	},
 	{
-		"id": 8687,
-		"precio": 1997811,
-		"nombre": "elit,"
+		"id": 1018,
+		"nombre": "COSEDORAS",
+		"precio": 10900,
+		"stock": 3
 	},
 	{
-		"id": 1935,
-		"precio": 2906610,
-		"nombre": "id,"
+		"id": 1019,
+		"nombre": "PERFORADORAS",
+		"precio": 10500,
+		"stock": 3
 	},
 	{
-		"id": 5879,
-		"precio": 766748,
-		"nombre": "ut,"
+		"id": 1020,
+		"nombre": "POSIT GRANDE",
+		"precio": 2100,
+		"stock": 6
 	},
 	{
-		"id": 7811,
-		"precio": 2961501,
-		"nombre": "nibh"
+		"id": 1021,
+		"nombre": "POSIT PEQUEÑO",
+		"precio": 2900,
+		"stock": 6
 	},
 	{
-		"id": 4016,
-		"precio": 1157657,
-		"nombre": "Donec"
+		"id": 1022,
+		"nombre": "SACAPUNTAS",
+		"precio": 600,
+		"stock": 8
 	},
 	{
-		"id": 9758,
-		"precio": 2202074,
-		"nombre": "Sed"
+		"id": 1023,
+		"nombre": "GANCHOS COCEDORA",
+		"precio": 2500,
+		"stock": 6
 	},
 	{
-		"id": 4572,
-		"precio": 1137543,
-		"nombre": "Donec"
+		"id": 1024,
+		"nombre": "USB  4 gb",
+		"precio": 26000,
+		"stock": 2
 	},
 	{
-		"id": 9326,
-		"precio": 622198,
-		"nombre": "et"
+		"id": 1025,
+		"nombre": "AMBIENTADOR PARA PISO X 1000 CC",
+		"precio": 4250,
+		"stock": 12
 	},
 	{
-		"id": 1299,
-		"precio": 3614231,
-		"nombre": "Cum"
+		"id": 1026,
+		"nombre": "BOLSAS PARA PAPELERIA PAQ  X 20 UDS",
+		"precio": 2500,
+		"stock": 15
 	},
 	{
-		"id": 7564,
-		"precio": 2070761,
-		"nombre": "ligula"
+		"id": 1027,
+		"nombre": "BOLSA PARA BASURA X10 UDS",
+		"precio": 2800,
+		"stock": 10
 	},
 	{
-		"id": 5691,
-		"precio": 1431202,
-		"nombre": "a"
+		"id": 1028,
+		"nombre": "CREMA LOVALOSA CAJA X 500 GRS (axion)",
+		"precio": 3900,
+		"stock": 7
 	},
 	{
-		"id": 9233,
-		"precio": 3524848,
-		"nombre": "lectus"
+		"id": 1029,
+		"nombre": "DETERGENTE EN POLVO X 1000 GRS",
+		"precio": 5200,
+		"stock": 12
 	},
 	{
-		"id": 9309,
-		"precio": 2780296,
-		"nombre": "molestie"
+		"id": 1030,
+		"nombre": "DULCE ABRIGO BAYETILLA 70*95",
+		"precio": 5300,
+		"stock": 2
 	},
 	{
-		"id": 4647,
-		"precio": 1742030,
-		"nombre": "quam"
+		"id": 1031,
+		"nombre": "ESCOBA FIBRA PLASTICA",
+		"precio": 6600,
+		"stock": 1
 	},
 	{
-		"id": 3015,
-		"precio": 3267275,
-		"nombre": "Integer"
+		"id": 1032,
+		"nombre": "ESPONJA ABRASIVA VERDE",
+		"precio": 500,
+		"stock": 12
 	},
 	{
-		"id": 3424,
-		"precio": 2631984,
-		"nombre": "Donec"
+		"id": 1033,
+		"nombre": "GUANTE DE USO LABORATORIO ",
+		"precio": 13900,
+		"stock": 1
 	},
 	{
-		"id": 9865,
-		"precio": 3103969,
-		"nombre": "malesuada"
+		"id": 1034,
+		"nombre": "JABON DETERGENTE AZULX 300GRS  REY",
+		"precio": 1350,
+		"stock": 5
 	},
 	{
-		"id": 1663,
-		"precio": 1711549,
-		"nombre": "porttitor"
+		"id": 1035,
+		"nombre": "LIJA DE AGUA",
+		"precio": 1000,
+		"stock": 3
 	},
 	{
-		"id": 8820,
-		"precio": 1208881,
-		"nombre": "auctor"
+		"id": 1036,
+		"nombre": "LIMPIDO GALON X1800 ML",
+		"precio": 5900,
+		"stock": 10
 	},
 	{
-		"id": 6097,
-		"precio": 2342308,
-		"nombre": "et"
+		"id": 1037,
+		"nombre": "LIMPION TELA TOALLA COCINA",
+		"precio": 2000,
+		"stock": 4
 	},
 	{
-		"id": 3551,
-		"precio": 1189486,
-		"nombre": "augue"
+		"id": 1038,
+		"nombre": "PAÑO ABSORVENTES AMARILLO",
+		"precio": 2900,
+		"stock": 4
 	},
 	{
-		"id": 3359,
-		"precio": 970513,
-		"nombre": "imperdiet,"
+		"id": 1039,
+		"nombre": "PAPEL HIGIENICO INDUSTRIAL",
+		"precio": 4300,
+		"stock": 24
 	},
 	{
-		"id": 8258,
-		"precio": 1031035,
-		"nombre": "cursus"
+		"id": 1040,
+		"nombre": "DISPENSADOR PAPEL HIGIENICO INDUSTRIAL",
+		"precio": 35000,
+		"stock": 1
 	},
 	{
-		"id": 3238,
-		"precio": 3910639,
-		"nombre": "tincidunt"
+		"id": 1041,
+		"nombre": "TAPABOCAS",
+		"precio": 1000,
+		"stock": 12
 	},
 	{
-		"id": 2140,
-		"precio": 1670943,
-		"nombre": "dui"
+		"id": 1042,
+		"nombre": "VARSOL   X 1000",
+		"precio": 7800,
+		"stock": 2
 	},
 	{
-		"id": 5202,
-		"precio": 447245,
-		"nombre": "velit"
+		"id": 1043,
+		"nombre": "TRAPEROS DE PAVILO CON CABO",
+		"precio": 6900,
+		"stock": 2
 	},
 	{
-		"id": 8657,
-		"precio": 1292203,
-		"nombre": "mauris"
+		"id": 1044,
+		"nombre": "CEPILLO PLASTICO CON CABO",
+		"precio": 5800,
+		"stock": 1
 	},
 	{
-		"id": 3457,
-		"precio": 182929,
-		"nombre": "primis"
+		"id": 1045,
+		"nombre": "AZUCAR BLANCA BOLSA X 1000GRS",
+		"precio": 2600,
+		"stock": 12
 	},
 	{
-		"id": 5727,
-		"precio": 3813339,
-		"nombre": "Proin"
+		"id": 1046,
+		"nombre": "CAFÉ MOLIDO BOLSA X 1000",
+		"precio": 19250,
+		"stock": 24
 	},
 	{
-		"id": 3911,
-		"precio": 1349944,
-		"nombre": "lobortis"
+		"id": 1047,
+		"nombre": "SERVILLETAS X 200 UDS",
+		"precio": 1500,
+		"stock": 5
 	},
 	{
-		"id": 4749,
-		"precio": 3488901,
-		"nombre": "nisi."
+		"id": 1048,
+		"nombre": "CUCHARA DULCERA",
+		"precio": 1850,
+		"stock": 6
 	},
 	{
-		"id": 2488,
-		"precio": 2442982,
-		"nombre": "congue,"
-	},
-	{
-		"id": 7992,
-		"precio": 867581,
-		"nombre": "Integer"
-	},
-	{
-		"id": 1471,
-		"precio": 3849250,
-		"nombre": "vitae,"
-	},
-	{
-		"id": 3073,
-		"precio": 3321489,
-		"nombre": "convallis"
-	},
-	{
-		"id": 1650,
-		"precio": 3193407,
-		"nombre": "Curabitur"
-	},
-	{
-		"id": 6797,
-		"precio": 3522987,
-		"nombre": "felis"
-	},
-	{
-		"id": 2769,
-		"precio": 1590166,
-		"nombre": "Donec"
-	},
-	{
-		"id": 8508,
-		"precio": 1979871,
-		"nombre": "Suspendisse"
-	},
-	{
-		"id": 3467,
-		"precio": 2288223,
-		"nombre": "est."
-	},
-	{
-		"id": 4343,
-		"precio": 2125374,
-		"nombre": "ut"
-	},
-	{
-		"id": 1995,
-		"precio": 2064847,
-		"nombre": "lacus."
-	},
-	{
-		"id": 4163,
-		"precio": 302076,
-		"nombre": "Sed"
-	},
-	{
-		"id": 7698,
-		"precio": 3469200,
-		"nombre": "ut"
-	},
-	{
-		"id": 3080,
-		"precio": 891751,
-		"nombre": "hendrerit"
-	},
-	{
-		"id": 7916,
-		"precio": 1451980,
-		"nombre": "fringilla"
-	},
-	{
-		"id": 9258,
-		"precio": 823764,
-		"nombre": "nulla."
-	},
-	{
-		"id": 7033,
-		"precio": 383421,
-		"nombre": "Proin"
-	},
-	{
-		"id": 6924,
-		"precio": 2245061,
-		"nombre": "Maecenas"
-	},
-	{
-		"id": 2500,
-		"precio": 2849199,
-		"nombre": "dolor."
-	},
-	{
-		"id": 3647,
-		"precio": 1670904,
-		"nombre": "Maecenas"
-	},
-	{
-		"id": 1499,
-		"precio": 3898943,
-		"nombre": "elit,"
-	},
-	{
-		"id": 5668,
-		"precio": 3703149,
-		"nombre": "sed,"
-	},
-	{
-		"id": 9839,
-		"precio": 1268164,
-		"nombre": "at,"
-	},
-	{
-		"id": 6492,
-		"precio": 70059,
-		"nombre": "tempus"
-	},
-	{
-		"id": 6793,
-		"precio": 407714,
-		"nombre": "ante."
-	},
-	{
-		"id": 9002,
-		"precio": 146423,
-		"nombre": "mauris."
-	},
-	{
-		"id": 4309,
-		"precio": 1800528,
-		"nombre": "iaculis"
-	},
-	{
-		"id": 7266,
-		"precio": 1344427,
-		"nombre": "Nunc"
-	},
-	{
-		"id": 1946,
-		"precio": 3070561,
-		"nombre": "congue."
-	},
-	{
-		"id": 1550,
-		"precio": 1449886,
-		"nombre": "tortor"
-	},
-	{
-		"id": 5615,
-		"precio": 3167439,
-		"nombre": "aliquam"
-	},
-	{
-		"id": 5023,
-		"precio": 277267,
-		"nombre": "nec,"
-	},
-	{
-		"id": 9004,
-		"precio": 2864370,
-		"nombre": "diam"
-	},
-	{
-		"id": 9855,
-		"precio": 748126,
-		"nombre": "enim."
-	},
-	{
-		"id": 1792,
-		"precio": 2915213,
-		"nombre": "orci"
-	},
-	{
-		"id": 1590,
-		"precio": 3279447,
-		"nombre": "vehicula"
-	},
-	{
-		"id": 7370,
-		"precio": 727639,
-		"nombre": "eu"
-	},
-	{
-		"id": 3449,
-		"precio": 3355531,
-		"nombre": "Class"
-	},
-	{
-		"id": 9049,
-		"precio": 1472666,
-		"nombre": "consectetuer"
-	},
-	{
-		"id": 3790,
-		"precio": 3882444,
-		"nombre": "luctus"
-	},
-	{
-		"id": 4282,
-		"precio": 1028881,
-		"nombre": "sollicitudin"
-	},
-	{
-		"id": 8492,
-		"precio": 2765370,
-		"nombre": "aliquet"
-	},
-	{
-		"id": 6839,
-		"precio": 2897523,
-		"nombre": "lorem,"
-	},
-	{
-		"id": 5432,
-		"precio": 1281919,
-		"nombre": "a,"
-	},
-	{
-		"id": 1629,
-		"precio": 370419,
-		"nombre": "consequat,"
-	},
-	{
-		"id": 7490,
-		"precio": 2363394,
-		"nombre": "mauris."
-	},
-	{
-		"id": 6270,
-		"precio": 1403022,
-		"nombre": "velit"
-	},
-	{
-		"id": 1259,
-		"precio": 3054406,
-		"nombre": "Phasellus"
-	},
-	{
-		"id": 4749,
-		"precio": 3679553,
-		"nombre": "eu"
-	},
-	{
-		"id": 3639,
-		"precio": 132208,
-		"nombre": "pede."
-	},
-	{
-		"id": 5763,
-		"precio": 1286343,
-		"nombre": "turpis"
+		"id": 1049,
+		"nombre": "PLATO TINTERO CAFÉ DE COLOMBIA",
+		"precio": 3200,
+		"stock": 8
 	}
 ]
