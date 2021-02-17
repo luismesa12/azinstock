@@ -35,7 +35,11 @@ function addToStock(e) {
         dbStock = JSON.parse(localStorage.getItem("DBstock"));
         dbStock.forEach(i => {
             if (i.id === Number(id)) {
-                alert(`El Item con Id: ${id} Ya Existe, No Se Permite Duplicar Id En Nuevos Items`);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Algo Salio Mal',
+                    text: `El Item con Id: ${id} Ya Existe, No Se Permite Duplicar Id En Nuevos Items`,
+                });
                 idNotRepeated = false;
             }
         });
@@ -43,12 +47,23 @@ function addToStock(e) {
             const newItem = new NewItem(id, name, price, stock);
             dbStock.push({...newItem})
             localStorage.setItem("DBstock", JSON.stringify(dbStock));
-            alert("se agrego el nuevo Item")
-            document.location.reload();
+            (async () => {
+                await Swal.fire({
+                    icon: 'success',
+                    title: `se agrego el nuevo Item`,
+                    text: '',
+                });
+                
+                document.location.reload();
+            })();//se autoinvoca
         }
     }
     else{
-        alert("todos los campos deben ser rellenados")
+        Swal.fire({
+            icon: 'error',
+            title: 'Algo Salio Mal',
+            text: `Todos Los Campos Deben Ser Rellenados`,
+        });
     }
     e.preventDefault();
 };
