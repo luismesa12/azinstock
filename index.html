@@ -174,25 +174,27 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Opciones de Crédito</h5>
+                  <h5 class="modal-title"><i class="fas fa-money-check-alt"></i> Opciones de Crédito</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                   </button>
                 </div>
-                <div id="modalBody" class="modal-body">
-                  <label for="exampleFormControlSelect1">Seleccione Número de Cuotas</label>
-                  <select class="form-control" id="selectCuotas">
-                    <option>Seleccione Cantidad de Cuotas</option>
-                    <option>6</option>
-                    <option>12</option>
-                    <option>18</option>
-                    <option>24</option>
-                    <option>30</option>
-                    <option>36</option>
-                  </select>
+                <div class="row mx-auto"> 
+                  <div id="modalBody" class="modal-body col-6">
+                    <label for="exampleFormControlSelect1"><i class="mb-3"></i> Seleccione Número de Cuotas</label>
+                    <select class="form-select" id="selectCuotas">
+                      <option>Cantidad de Cuotas</option>
+                      <option>6</option>
+                      <option>12</option>
+                      <option>18</option>
+                      <option>24</option>
+                      <option>30</option>
+                      <option>36</option>
+                    </select>
+                  </div>
                 </div>
-                <div id="infoCredito" class="container "></div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <div id="infoCredito" class="container text-center"></div>
+                <div class="modal-footer mx-auto">
+                  <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal"><i class="fas fa-thumbs-up"></i> Cerrar</button>
                 </div>
               </div>
             </div>

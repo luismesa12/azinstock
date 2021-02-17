@@ -131,7 +131,7 @@ function facturar(event) {
         let itemsCompra = "";
         totalCompra = 0;
         compras.forEach(element => {
-            itemsCompra += `*${element.producto.slice(0, 17)}.../ $${element.precio} / ${element.cantidad} / $${element.total()}<br>`
+            itemsCompra += `*${element.producto.slice(0, 17)}.../${formatterPeso.format(element.precio)}/ ${element.cantidad} /${formatterPeso.format(element.total())}<br>`
             totalCompra += element.total()
         });
 
@@ -156,7 +156,7 @@ function facturar(event) {
         part6.innerHTML = `${itemsCompra}<br>`;
 
         const part7 = document.createElement('p');
-        part7.textContent = `Total a Pagar: $${totalCompra}`;
+        part7.textContent = `Total a Pagar: ${formatterPeso.format(totalCompra)}`;
 
         const part8 = document.createElement('p');
         part8.innerHTML = `
@@ -245,10 +245,10 @@ function calcularMensualidad(event) {
     if (!isNaN(event.target.value)) {
         const divCuotas = document.createElement("div");
         divCuotas.innerHTML = `
-        <p><strong>Total a Financiar: </strong>$${totalCompra}</p>
+        <p><strong>Total a Financiar: </strong>${formatterPeso.format(totalCompra)}</p>
         <p><strong>Tasa de Interés Mensual: </strong>${(tasa * 100).toFixed(2)}%</p>
         <p><strong>Cantidad de Cuotas: </strong>${cuotas}</p>
-        <p>Mensualidad: <strong>$<i>${mensualidad.toFixed(2)}</i></strong></p>
+        <p>Mensualidad: <strong>${formatterPeso.format(mensualidad)}</strong></p>
         `;
         const infoCredito = document.querySelector("#infoCredito");
         infoCredito.innerHTML = "";
@@ -329,4 +329,9 @@ function preparePrinting() {
     });
 }
 /*FIn Imprimir Factura*/
-
+/* Formatear Modeda */
+const formatterPeso = new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0
+  });
